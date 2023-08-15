@@ -41,7 +41,7 @@ class LatentUpscaler:
 		return {
 			"required": {
 				"samples": ("LATENT", ),
-				"model_ver": (["v1", "xl"],),
+				"latent_ver": (["v1", "xl"],),
 				"scale_factor": (["1.25", "1.5", "2.0"],),
 			}
 		}
@@ -50,13 +50,13 @@ class LatentUpscaler:
 	FUNCTION = "upscale"
 	CATEGORY = "latent"
 
-	def upscale(self, samples, model_ver, scale_factor):
+	def upscale(self, samples, latent_ver, scale_factor):
 		model = Upscaler(scale_factor)
 		weights = str(hf_hub_download(
 			repo_id="city96/SD-Latent-Upscaler",
-			filename=f"latent-upscaler-v{model.version}_SD{model_ver}-x{scale_factor}.safetensors")
+			filename=f"latent-upscaler-v{model.version}_SD{latent_ver}-x{scale_factor}.safetensors")
 		)
-		# weights = f"./latent-upscaler-v{model.version}_SD{model_ver}-x{scale_factor}.safetensors"
+		# weights = f"./latent-upscaler-v{model.version}_SD{latent_ver}-x{scale_factor}.safetensors"
 
 		model.load_state_dict(load_file(weights))
 		lt = samples["samples"]

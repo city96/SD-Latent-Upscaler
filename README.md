@@ -23,7 +23,7 @@ Currently not supported but it should be possible to use it at the hires-fix par
 
 Usage is fairly simple. You use it anywhere where you would upscale a latent. If you need a higher scale factor (e.g. x4), simply chain two of the upscalers.
 
-![LATENT_UPSCALER_ANI](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/fdc4c74b-f0c3-4d28-ae11-d8970a3f3d7f)
+![LATENT_UPSCALER_ANI](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/dc187631-fd94-445e-9f20-a5741091bb0e)
 
 ![LATENT_UPSCALER_COLOR](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/ec6997ce-664b-4956-a947-503b8b591f73)
 

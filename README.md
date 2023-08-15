@@ -27,6 +27,10 @@ Usage is fairly simple. You use it anywhere where you would upscale a latent. If
 
 ![LATENT_UPSCALER_COLOR](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/ec6997ce-664b-4956-a947-503b8b591f73)
 
+As part of a workflow - notice how the second stage works despite the low denoise of 0.2. The image remains relatively unchanged.
+
+![LATENT_UPSCALER_WF](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/6ae1779d-42ec-413e-8e44-1b9b8a1e2663)
+
 ## Training
 
 ### Interposer v1.0 

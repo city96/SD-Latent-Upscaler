@@ -9,7 +9,7 @@ Very similar to my [latent interposer](https://github.com/city96/SD-Latent-Inter
 
 ### ComfyUI
 
-To install it, simply clone this repo to your custom_nodes folder using the following command: git clone https://github.com/city96/SD-Latent-Interposer custom_nodes/SD-Latent-Interposer.
+To install it, simply clone this repo to your custom_nodes folder using the following command: git clone https://github.com/city96/SD-Latent-Upscaler custom_nodes/SD-Latent-Upscaler.
 
 Alternatively, you can download the [comfy_latent_upscaler.py](https://github.com/city96/SD-Latent-Upscaler/blob/main/comfy_latent_upscaler.py) file to your ComfyUI/custom_nodes folder as well. You may need to install hfhub using the command pip install huggingface-hub inside your venv.
 

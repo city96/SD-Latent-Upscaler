@@ -25,7 +25,7 @@ Usage is fairly simple. You use it anywhere where you would upscale a latent. If
 
 ![LATENT_UPSCALER_ANI](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/dc187631-fd94-445e-9f20-a5741091bb0e)
 
-![LATENT_UPSCALER_COLOR](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/ec6997ce-664b-4956-a947-503b8b591f73)
+![LATENT_UPSCALER_V2](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/16e7fcb3-74e5-476f-8d54-1eb4d6d4f78b)
 
 As part of a workflow - notice how the second stage works despite the low denoise of 0.2. The image remains relatively unchanged.
 
@@ -33,11 +33,25 @@ As part of a workflow - notice how the second stage works despite the low denois
 
 ## Training
 
-### Interposer v1.0 
+### Upscaler v2.0
 
-This current version is still relatively undertrained, as with the interposer. Mostly a proof-of-concept but it seems good enough as a base.
+I decided to do some more research and change the network architecture alltogether. This one is just a bunch of `Conv2d` layers with an `Upsample` at the beginning, similar to before except I reduced the kernel size/padding and instead added more layers.
+
+Trained for 1M iterations on DIV2K + Flickr2K. I changed to AdamW + L1 loss (from SGD and MSE loss) and added a `OneCycleLR` scheduler.
+
+![loss](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/ca361dfd-7148-4b1b-bbf2-59151f8992cc)
+
+### Upscaler v1.0 
+
+This version was still relatively undertrained. Mostly a proof-of-concept.
 
 Trained for 1M iterations on DIV2K + Flickr2K.
 
-(Left is training loss, right is validation loss.)
-![loss](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/edbc30b4-56b4-4b74-8c0b-3ab35916e963)
+<details>
+  <summary>Loss graphs for v1.0 models</summary>
+
+  (Left is training loss, right is validation loss.)
+
+  ![loss](https://github.com/city96/SD-Latent-Upscaler/assets/125218114/edbc30b4-56b4-4b74-8c0b-3ab35916e963)
+
+<details>

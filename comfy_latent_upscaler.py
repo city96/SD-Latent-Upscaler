@@ -9,7 +9,7 @@ class Upscaler(nn.Module):
 		Basic NN layout, ported from:
 		https://github.com/city96/SD-Latent-Upscaler/blob/main/upscaler.py
 	"""
-	version = 2.0 # network revision
+	version = 2.1 # network revision
 	def head(self):
 		return [
 			nn.Conv2d(self.chan, self.size, kernel_size=self.krn, padding=self.pad),

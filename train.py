@@ -112,8 +112,8 @@ if __name__ == "__main__":
 		eval_src = torch.from_numpy(np.load(f"test_{args.ver}_{args.res}px.npy")).to(target_dev)
 		eval_dst = torch.from_numpy(np.load(f"test_{args.ver}_{dst_res}px.npy")).to(target_dev)
 	else:
-		eval_src = dataset[0][0]
-		eval_dst = dataset[0][1]
+		eval_src = torch.unsqueeze(dataset[0][0],0)
+		eval_dst = torch.unsqueeze(dataset[0][1],0)
 
 	model = Upscaler(args.fac)
 	if args.resume:
@@ -131,6 +131,7 @@ if __name__ == "__main__":
 		total_steps=int(args.steps/args.bs),
 		max_lr=float(args.lr)/args.bs,
 		pct_start=0.015,
+		final_div_factor=2500,
 	)
 	# scaler = torch.cuda.amp.GradScaler()
 	progress = tqdm(total=args.steps)

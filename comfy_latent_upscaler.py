@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 from safetensors.torch import load_file
@@ -69,11 +70,21 @@ class LatentUpscaler:
 
 	def upscale(self, samples, latent_ver, scale_factor):
 		model = Upscaler(scale_factor)
-		weights = str(hf_hub_download(
-			repo_id="city96/SD-Latent-Upscaler",
-			filename=f"latent-upscaler-v{model.version}_SD{latent_ver}-x{scale_factor}.safetensors")
+		filename = f"latent-upscaler-v{model.version}_SD{latent_ver}-x{scale_factor}.safetensors"
+		local = os.path.join(
+			os.path.join(os.path.dirname(os.path.realpath(__file__)),"models"),
+			filename
 		)
-		# weights = f"./latent-upscaler-v{model.version}_SD{latent_ver}-x{scale_factor}.safetensors"
+
+		if os.path.isfile(local):
+			print("LatentUpscaler: Using local model")
+			weights = local
+		else:
+			print("LatentUpscaler: Using HF Hub model")
+			weights = str(hf_hub_download(
+				repo_id="city96/SD-Latent-Upscaler",
+				filename=filename)
+			)
 
 		model.load_state_dict(load_file(weights))
 		lt = samples["samples"]

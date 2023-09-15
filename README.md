@@ -9,7 +9,7 @@ Very similar to my [latent interposer](https://github.com/city96/SD-Latent-Inter
 
 ### ComfyUI
 
-To install it, simply clone this repo to your custom_nodes folder using the following command: git clone https://github.com/city96/SD-Latent-Upscaler custom_nodes/SD-Latent-Upscaler.
+To install it, simply clone this repo to your custom_nodes folder using the following command: `git clone https://github.com/city96/SD-Latent-Upscaler custom_nodes/SD-Latent-Upscaler`.
 
 Alternatively, you can download the [comfy_latent_upscaler.py](https://github.com/city96/SD-Latent-Upscaler/blob/main/comfy_latent_upscaler.py) file to your ComfyUI/custom_nodes folder as well. You may need to install hfhub using the command pip install huggingface-hub inside your venv.
 
@@ -18,6 +18,12 @@ If you need the model weights for something else, they are [hosted on HF](https:
 ### Auto1111
 
 Currently not supported but it should be possible to use it at the hires-fix part.
+
+### Local models
+
+The node pulls the required files from huggingface hub by default. You can create a `models` folder and place the modules there if you have a flaky connection or prefer to use it completely offline, it will load them locally instead. The path should be: `ComfyUI/custom_nodes/SD-Latent-Upscaler/models`
+
+Alternatively, just clone the entire HF repo to it: `git clone https://huggingface.co/city96/SD-Latent-Upscaler custom_nodes/SD-Latent-Upscaler/models`
 
 ### Usage/principle
 
